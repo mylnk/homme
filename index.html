@@ -498,6 +498,140 @@ header {
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+
+         /* Témoignages */
+.testimonials {
+  background: #0c1533;
+  padding: 3rem 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+.testimonials h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.testimonial-slider {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.testimonial {
+  display: none;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+}
+
+.testimonial.active {
+  display: block;
+}
+
+.testimonial h4 {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #ff0066;
+}
+
+.testimonial-dots {
+  margin-top: 1rem;
+}
+
+.testimonial-dots .dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 3px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.testimonial-dots .active {
+  background-color: #ff0066;
+}
+
+/* Fond du pop-up */
+#popup {
+  display: none; /* caché par défaut */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+  animation: fadeIn 0.6s ease forwards; /* animation quand visible */
+}
+
+/* Contenu du pop-up centré */
+#popup .popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 10px;
+  padding: 5px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: scaleUp 0.5s ease forwards; /* animation de l’image */
+}
+
+/* Image carrée */
+#popup img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Croix de fermeture */
+#popup .close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Animation fond */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Animation contenu */
+@keyframes scaleUp {
+  from {opacity: 0; transform: translate(-50%, -50%) scale(0.8);}
+  to {opacity: 1; transform: translate(-50%, -50%) scale(1);}
+}
+
+/* Effet sur la croix */
+#popup .close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#popup .close-btn:hover {
+  color: #ff6b6b;
+  transform: rotate(90deg) scale(1.2);
+}
+
     </style>
 </head>
 <body>
@@ -546,8 +680,18 @@ header {
                 </div>
             </div>
         </section>
+
+        <!-- Pop-up -->
+<div id="popup">
+  <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <a href="https://wa.me/p/24268355712823608/22542229253" target="_blank">
+      <img src="img/image4.jpg" alt="Promo BADCAT°">
+    </a>
+  </div>
+</div>
         
-            <div class="hero1"> <h2>C'est simple, une bouteille acheté, un Cadeau de type 1 Paquet de 3 Boxeurs offert !</h2>
+            <div class="hero1"> <h2>Un Parfum acheté, un 1 Paquet de 3 Boxers offert !</h2>
             </div>
 
         <!-- SLIDER SECTION -->
@@ -574,13 +718,74 @@ header {
 
         <section class="timer-section">
             <div class="container">
-                <h3 class="timer-title">Temps pour avoir 3 Boxeurs gratuit!</h3>
+                <h3 class="timer-title">Temps pour avoir 3 Boxers gratuit!</h3>
                 <div class="timer-display" id="timer">10:00</div>
                 <p class="timer-subtitle">Dépêchez-vous avant la fin de l'offre</p>              
          </div>
          <a href="https://wa.me/p/24268355712823608/22542229253" class="cta-button">Passer ma commande</a>
         </section>
     </main>
+    
+<!-- Témoignages / Recommandations -->
+<section class="testimonials" id="avis">
+  <h2>Ils ont adoré BADCAT°</h2>
+
+  <div class="testimonial-slider">
+    <div class="testimonial active">
+      <p>"Une fragrance incroyable qui me donne confiance en moi."</p>
+      <h4>- Mr Kablan, Abidjan</h4>
+    </div>
+    <div class="testimonial">
+      <p>"Le parfum BADCAT° est juste magique, j'utilise Bois d'argent !"</p>
+      <h4>- Mr Tuo, Bouaké</h4>
+    </div>
+    <div class="testimonial">
+      <p>"Son odeur est élégante et tient toute la journée."</p>
+      <h4>- Mr Sanogo, Yamoussoukro</h4>
+    </div>
+    <div class="testimonial">
+      <p>"On me demande tout le temps quel parfum c’est."</p>
+      <h4>- Mr Fatiga, Dimbokro</h4>
+    </div>
+    <div class="testimonial">
+      <p>"Je recommande à 100%."</p>
+      <h4>- Daniel, Port-bouet</h4>
+    </div>
+    <div class="testimonial">
+      <p>"Un cadeau parfait pour mon mari, il est content comme ça."</p>
+      <h4>- Ami, Abidjan</h4>
+    </div>
+    <div class="testimonial">
+      <p>"J’adore le packaging!!"</p>
+      <h4>- Mr Gobé, Berginville</h4>
+    </div>
+    <div class="testimonial">
+      <p>"Je n’ai jamais reçu autant de compliments sur mon parfum."</p>
+      <h4>- David, Abingourou</h4>
+    </div>
+    <div class="testimonial">
+      <p>"Service rapide et parfum de qualité supérieure."</p>
+      <h4>- Badiel, 2Plateaux</h4>
+    </div>
+    <div class="testimonial">
+      <p>"Il dure toute la journée et reste subtil, j’adore."</p>
+      <h4>- Mr Koffi, Bouaké</h4>
+    </div>
+  </div>
+
+  <div class="testimonial-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
 
     <footer>
         <div class="container">
@@ -674,7 +879,6 @@ header {
             });
         });
 
-  
   const cta = document.querySelector('.cta-button');
 if (cta) {
   cta.addEventListener('click', function(e) {
@@ -686,7 +890,54 @@ if (cta) {
     // window.open(url, '_blank');
   });
 }
-  
+  // Slider Témoignages automatique
+let tIndex = 0;
+const tSlides = document.querySelectorAll('.testimonial');
+const tDots = document.querySelectorAll('.testimonial-dots .dot');
+
+function showTestimonial(n) {
+  tSlides.forEach((slide, i) => {
+    slide.classList.remove('active');
+    tDots[i].classList.remove('active');
+  });
+  tSlides[n].classList.add('active');
+  tDots[n].classList.add('active');
+}
+
+function nextTestimonial() {
+  tIndex++;
+  if (tIndex >= tSlides.length) tIndex = 0;
+  showTestimonial(tIndex);
+}
+
+setInterval(nextTestimonial, 4000); // change toutes les 4 secondes
+
+// Click manuel sur les dots
+tDots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    tIndex = i;
+    showTestimonial(tIndex);
+  });
+});
+
+// Affiche le pop-up 2 secondes après le chargement
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'block';
+    // petit retard pour lancer l'animation
+    setTimeout(()=>{
+      popup.querySelector('.popup-content').style.opacity = '1';
+    },50);
+  }, 2000);
+});
+
+// Ferme le pop-up au clic sur la croix
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('#popup .close-btn').addEventListener('click', () => {
+    document.getElementById('popup').style.display = 'none';
+  });
+});
     </script>
 </body>
 </html>
