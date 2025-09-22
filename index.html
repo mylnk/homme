@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BADCAT° - Parfum d'Exception</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-align: center;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f, #4ecdc4);
+            background-size: 300% 300%;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 10;
+            animation: slideInLeft 1.2s ease-out;
+            
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            margin-top : 80px
+        }
+
+        .perfume-bottle {
+            width: 200px;
+            height: 300px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px 20px 40px 40px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .perfume-bottle::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 40px;
+            background: linear-gradient(145deg, #d4af37, #ffd700);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .perfume-bottle::after {
+            content: 'BADCAT° pour FEMME';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .hero1 {
+            font-size: 0.7rem;
+            color: #ffd93d;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-align: center;   
+            
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(1deg); }
+            50% { transform: translateY(0px) rotate(0deg); }
+            75% { transform: translateY(-5px) rotate(-1deg); }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 1rem;
+            font-weight: 50;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h2 {
+            font-size: 1rem;
+            color: #ffd93d;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 38px;
+            max-width: 450px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            color: white;
+            text-decoration: none;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Timer */
+        .timer-section {
+            text-align: center;
+            margin: 50px 0;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timer-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffd93d;
+            font-weight: 200;
+        }
+
+        .timer-display {
+            font-size: 4rem;
+            font-weight: 100;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            font-family: 'Courier New', monospace;
+        }
+
+        .timer-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Background Effects */
+        .floating-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 215, 61, 0.6), transparent);
+            border-radius: 50%;
+            animation: floatParticle 8s infinite linear;
+        }
+
+        .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 4s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; left: 70%; animation-delay: 1s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; left: 80%; animation-delay: 3s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; left: 90%; animation-delay: 5s; }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 80px;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 0;
+            }
+
+            .hero-content {
+                order: 2;
+                margin-top: 30px;
+            }
+
+            .hero-visual {
+                order: 1;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .perfume-bottle {
+                width: 200px;
+                height: 280px;
+            }
+
+            .timer-display {
+                font-size: 2.3rem;
+            }
+        }
+        
+        /* --- NAVBAR --- */
+header {
+  width: 100%;
+  position: fixed; /* fixe en haut */
+  top:0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8); /* noir semi-transparent */
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #ff6600; /* orange BADCAT° */
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s;
+  
+}
+
+.nav-links li a:hover {
+  color: #ff6600;
+}
+
+.btn-order {
+  background: #ff6600;
+  padding: 7px 16px;
+  border-radius: 10px;
+  color: #fff !important;
+}
+
+.btn-order:hover {
+  background: #e65500;
+}
+
+/* Burger menu */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.burger span {
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    right: 0;
+    top: 46px;
+    height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    width: 100%;
+    text-align: center;
+    transition: height 0.3s ease;
+  }
+
+  .nav-links.open {
+    height: 180px; /* hauteur du menu ouvert */
+    padding: 18px 0;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+/* --- SLIDER SECTION 2222222222--- */
+        .slider-section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            margin: 20px 0;
+        }
+
+        .slider {
+            position: relative;
+            width: 300px;
+            max-width: 800px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 5px;
+            gap: 3px;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background: #ffd93d;
+            transform: scale(1.2);
+        }
+
+        .nav-dot:hover {
+            background: rgba(255, 215, 61, 0.7);
+        }
+
+        .timer-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffd93d;
+            font-weight: 300;
+        }
+
+        .timer-display {
+            font-size: 4rem;
+            font-weight: 100;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            font-family: 'Courier New', monospace;
+        }
+
+        .timer-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header>
+    
+    
+      <nav class="navbar">
+    <div class="logo">BADCAT°</div>
+    <ul class="nav-links">
+      <li><a href="https://wa.me/p/24268355712823608/22542229253">PARFUM FEMME</a></li>
+      <li><a href="https://wa.me/22542229253">CONTACT</a></li>
+      <li><a href="https://wa.me/c/22542229253">BOUTIQUE</a></li>
+      <li><a href="https://wa.me/p/30969244436055446/22542229253" class="btn-order">PASSER MA COMMANDE</a></li>
+    </ul>
+    <div class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  
+        <div class="container">
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>HOMME<br>E & A2</h1>
+                    <h2>Élégant | Audacieux | Affirmatif</h2>
+                    <p>Découvrez une fragrance unique, créée pour HOMME MODERNE qui ose exprimer sa personnalité avec assurance.</p>
+                    <a href="https://wa.me/p/30969244436055446/22542229253" class="cta-button">Découvrir la Collection</a>
+                </div>
+                <div class="hero-visual">
+                    <div class="perfume-bottle"></div>
+                </div>
+            </div>
+        </section>
+        
+            <div class="hero1"> <h2>C'est simple, une bouteille acheté, un Cadeau de type 1 Paquet de 3 Boxeurs offert !</h2>
+            </div>
+
+        <!-- SLIDER SECTION -->
+        <div class="slider-section">
+            <div class="container">
+                <div class="slider">
+                    <div class="slide active">
+                     <img src="img/image1.jpg" alt="image 1">
+                    </div>
+                    <div class="slide">
+                        <img src="img/image2.jpg" alt="Image 2">
+                    </div>
+                    <div class="slide">
+                        <img src="img/image3.jpg" alt="Image 3">
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <button class="nav-dot active" onclick="showSlide(0)"></button>
+                    <button class="nav-dot" onclick="showSlide(1)"></button>
+                     <button class="nav-dot" onclick="showSlide(2)"></button>
+                </div>
+            </div>
+        </div>
+
+        <section class="timer-section">
+            <div class="container">
+                <h3 class="timer-title">Temps pour avoir 3 Boxeurs gratuit!</h3>
+                <div class="timer-display" id="timer">10:00</div>
+                <p class="timer-subtitle">Dépêchez-vous avant la fin de l'offre</p>              
+         </div>
+         <a href="https://wa.me/p/30969244436055446/22542229253" class="cta-button">Passer ma commande</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="copyright">© 2025 BADCAT° - TOUS DROITS RESERVES <br> Classe A pour homme de valeur</p>
+        </div>
+    </footer>
+
+    <script>
+        // Timer functionality
+        let timeLeft = 10 * 60; // 10 minutes in seconds
+        const timerDisplay = document.getElementById('timer');
+
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            
+            const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            timerDisplay.textContent = formattedTime;
+            
+            if (timeLeft > 0) {
+                timeLeft--;
+            } else {
+                clearInterval(timerInterval);
+                timerDisplay.textContent = "EXPIRÉ";
+                timerDisplay.style.color = "#ff4757";
+            }
+        }
+
+        // Start timer
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer(); // Initial call
+
+        // Add smooth scroll effect for CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Add your action here - redirect to product page, open modal, etc.
+            target="_blank"
+        });
+
+        // Add parallax effect to particles
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const particles = document.querySelectorAll('.particle');
+            
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 0.1;
+                particle.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+        
+          const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.nav-links');
+
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  
+  // Slider functionality
+        const slides = document.querySelectorAll('.slide');
+        const navDots = document.querySelectorAll('.nav-dot');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            // Remove active class from all slides and dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            navDots.forEach(dot => dot.classList.remove('active'));
+            
+            // Add active class to current slide and dot
+            slides[index].classList.add('active');
+            navDots[index].classList.add('active');
+            
+            currentIndex = index;
+        }
+
+        function nextSlide() {
+            const nextIndex = (currentIndex + 1) % slides.length;
+            showSlide(nextIndex);
+        }
+
+        // Auto-play slider every 4 seconds
+        setInterval(nextSlide, 4000);
+
+        // Add parallax effect to particles
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const particles = document.querySelectorAll('.particle');
+            
+            particles.forEach((particle, index) => {
+                const speed = (index + 1) * 0.1;
+                particle.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+  
+  const cta = document.querySelector('.cta-button');
+if (cta) {
+  cta.addEventListener('click', function(e) {
+    e.preventDefault();                 // empêche l'action par défaut
+    const url = cta.getAttribute('href') || cta.dataset.href || 'https://tonshop.com';
+    // ouvrir dans le même onglet :
+    window.location.href = url;
+    // -- ou ouvrir dans un nouvel onglet :
+    // window.open(url, '_blank');
+  });
+}
+  
+    </script>
+</body>
+</html>
