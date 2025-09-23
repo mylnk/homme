@@ -632,6 +632,79 @@ header {
   transform: rotate(90deg) scale(1.2);
 }
 
+/*  BOUTON FINAL  */
+.cta-container {
+  text-align: center;
+  margin: 55px 0;
+}
+
+.cta-final {
+  display: inline-block;
+  padding: 10px 37px;
+  background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 200;
+  text-transform: uppercase;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+  position: relative;
+  overflow: hidden;
+  opacity: 0; /* invisible au départ */
+  pointer-events: none; /* non cliquable au départ */
+  transition: opacity 0.6s ease, transform 0.3s ease;
+}
+
+.cta-final::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.cta-final:hover::before {
+  left: 100%;
+}
+
+.cta-final:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 107, 107, 0.5);
+}
+
+.cta-final.show {
+  opacity: 1; /* devient visible */
+  pointer-events: auto; /* devient cliquable */
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(255,107,107,0);
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+    box-shadow: 0 0 25px rgba(255,107,107,0.4);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(255,107,107,0.3);
+  }
+}
+
+.cta-final.show {
+  opacity: 1;
+  pointer-events: auto;
+  animation: popIn 0.8s ease-out; /* animation quand il apparaît */
+}
+
     </style>
 </head>
 <body>
@@ -787,6 +860,11 @@ header {
   </div>
 </section>
 
+<!-- Bouton d'appel à l'action -->
+<div class="cta-container">
+  <a href="https://wa.me/p/24268355712823608/22542229253" class="cta-final" id="ctaFinal"> BADCAT, POUR TOI ICI !</a>
+</div>
+
     <footer>
         <div class="container">
             <p class="copyright">© 2025 BADCAT° - TOUS DROITS RESERVES <br> Classe A pour homme de valeur</p>
@@ -938,6 +1016,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('popup').style.display = 'none';
   });
 });
+
+// Attendre 63 secondes avant d'afficher le bouton
+  setTimeout(() => {
+    document.getElementById('ctaFinal').classList.add('show');
+  }, 25000); // 25 secondes
+
     </script>
 </body>
 </html>
