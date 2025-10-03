@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BADCAT° - Parfum d'Exception</title>
+    <title>Prestige Parfums - Collection Premium</title>
     <style>
         * {
             margin: 0;
@@ -12,167 +12,164 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
             color: white;
             overflow-x: hidden;
             min-height: 100vh;
         }
 
-        .container {
+        /* NAVIGATION */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 5px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 18px;
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 1.3rem;
             font-weight: 300;
             letter-spacing: 3px;
-            text-align: center;
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f, #4ecdc4);
-            background-size: 300% 300%;
-            background-clip: text;
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: gradient 3s ease infinite;
+            background-clip: text;
         }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .nav-links {
+            display: flex;
+            list-style: none;
         }
 
-        /* Hero Section */
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #d4af37;
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 3px;
+        }
+
+        .burger span {
+            width: 20px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .burger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* HERO SECTION */
         .hero {
+            height: 36vh;
             display: flex;
             align-items: center;
-            min-height: 80vh;
+            justify-content: center;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
         .hero-content {
-            flex: 1;
             z-index: 10;
-            animation: slideInLeft 1.2s ease-out;
-            
-        }
-
-        .hero-visual {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            z-index: 10;
-            margin-top : 80px
-        }
-
-        .perfume-bottle {
-            width: 200px;
-            height: 300px;
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px 20px 40px 40px;
-            position: relative;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .perfume-bottle::before {
-            content: '';
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 40px;
-            background: linear-gradient(145deg, #d4af37, #ffd700);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-        }
-
-        .perfume-bottle::after {
-            content: 'BADCAT° pour HOMME';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.5rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        .hero1 {
-            font-size: 0.7rem;
-            color: #ffd93d;
-            font-weight: 300;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            text-align: center;   
-            
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-10px) rotate(1deg); }
-            50% { transform: translateY(0px) rotate(0deg); }
-            75% { transform: translateY(-5px) rotate(-1deg); }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            animation: fadeInUp 1.5s ease-out;
         }
 
         .hero h1 {
-            font-size: 1rem;
-            font-weight: 50;
-            margin-bottom: 20px;
-            line-height: 1.3;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero h2 {
-            font-size: 1rem;
-            color: #ffd93d;
+            font-size: 2rem;
             font-weight: 300;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #d4af37;
         }
 
         .hero p {
-            font-size: 1rem;
-            line-height: 1.7;
+            font-size: 1.1rem;
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 38px;
-            max-width: 450px;
+            margin-bottom: 10px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* CTA Button */
+        /* BOUTONS CTA ANIMÉS */
+        .cta-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
         .cta-button {
-            display: inline-block;
-            padding: 18px 40px;
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-            color: white;
-            text-decoration: none;
-            border-radius: 40px;
+            position: relative;
+            padding: 20px 40px;
             font-size: 1.1rem;
             font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
-            position: relative;
+            text-decoration: none;
+            border-radius: 50px;
             overflow: hidden;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid transparent;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .cta-feminine {
+            background: linear-gradient(45deg, #ff6b9d, #c44569, #f8b500);
+            color: white;
+            box-shadow: 0 10px 18px rgba(255, 107, 157, 0.3);
+        }
+
+        .cta-feminine:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.5);
+        }
+
+        .cta-masculine {
+            background: linear-gradient(45deg, #2c3e50, #34495e, #1abc9c);
+            color: white;
+            box-shadow: 0 10px 18px rgba(44, 62, 80, 0.3);
+            animation-delay: 1s;
+        }
+
+        .cta-masculine:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(44, 62, 80, 0.5);
         }
 
         .cta-button::before {
@@ -182,54 +179,85 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
         }
 
         .cta-button:hover::before {
             left: 100%;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px);
+            }
+            50% { 
+                transform: translateY(-10px);
+            }
         }
 
-        /* Timer */
-        .timer-section {
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* SECTION COLLECTIONS */
+        .collections {
+            padding: 100px 0;
             text-align: center;
-            margin: 50px 0;
-            padding: 40px;
+            margin: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .collections h2 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 60px;
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .collection-item {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 5px;
+            padding: 40px 20px;
+            border-radius: 20px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
-        .timer-title {
-            font-size: 2rem;
+        .collection-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .collection-item h3 {
+            font-size: 1.8rem;
             margin-bottom: 20px;
-            color: #ffd93d;
-            font-weight: 200;
+            color: #d4af37;
         }
 
-        .timer-display {
-            font-size: 4rem;
-            font-weight: 100;
-            color: #ff6b6b;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
-            font-family: 'Courier New', monospace;
-        }
-
-        .timer-subtitle {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Background Effects */
+        /* PARTICULES FLOTTANTES */
         .floating-particles {
             position: absolute;
             top: 0;
@@ -242,17 +270,17 @@
 
         .particle {
             position: absolute;
-            background: radial-gradient(circle, rgba(255, 215, 61, 0.6), transparent);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.6), transparent);
             border-radius: 50%;
-            animation: floatParticle 8s infinite linear;
+            animation: floatParticle 12s infinite linear;
         }
 
         .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 2s; }
-        .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 4s; }
-        .particle:nth-child(4) { width: 5px; height: 5px; left: 70%; animation-delay: 1s; }
-        .particle:nth-child(5) { width: 4px; height: 4px; left: 80%; animation-delay: 3s; }
-        .particle:nth-child(6) { width: 7px; height: 7px; left: 90%; animation-delay: 5s; }
+        .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 3s; }
+        .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 6s; }
+        .particle:nth-child(4) { width: 5px; height: 5px; left: 70%; animation-delay: 2s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; left: 80%; animation-delay: 5s; }
+        .particle:nth-child(6) { width: 7px; height: 7px; left: 90%; animation-delay: 8s; }
 
         @keyframes floatParticle {
             0% {
@@ -271,165 +299,24 @@
             }
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 80px;
-        }
 
-        .copyright {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-            letter-spacing: 1px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding: 30px 0;
-            }
-
-            .hero-content {
-                order: 2;
-                margin-top: 30px;
-            }
-
-            .hero-visual {
-                order: 1;
-            }
-
-            .hero h1 {
-                font-size: 2.1rem;
-            }
-
-            .perfume-bottle {
-                width: 200px;
-                height: 280px;
-            }
-
-            .timer-display {
-                font-size: 2.3rem;
-            }
-        }
+        /* SLIDER SECTION */
         
-        /* --- NAVBAR --- */
-header {
-  width: 100%;
-  position: fixed; /* fixe en haut */
-  top:0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.8); /* noir semi-transparent */
-  z-index: 1000;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 25px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.logo {
-  font-size: 1.7rem;
-  font-weight: bold;
-  color: #ff6600; /* orange BADCAT° */
-  letter-spacing: 2px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 25px;
-  list-style: none;
-  
-}
-
-.nav-links li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
-  transition: color 0.3s;
-  
-}
-
-.nav-links li a:hover {
-  color: #ff6600;
-}
-
-.btn-order {
-  background: #ff6600;
-  padding: 7px 16px;
-  border-radius: 10px;
-  color: #fff !important;
-}
-
-.btn-order:hover {
-  background: #e65500;
-}
-
-/* Burger menu */
-.burger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.burger span {
-  width: 25px;
-  height: 2px;
-  background: #fff;
-  border-radius: 3px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    right: 0;
-    top: 46px;
-    height: 0;
-    overflow: hidden;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.95);
-    width: 100%;
-    text-align: center;
-    transition: height 0.3s ease;
-  }
-
-  .nav-links.open {
-    height: 180px; /* hauteur du menu ouvert */
-    padding: 18px 0;
-  }
-
-  .burger {
-    display: flex;
-  }
-}
-
-/* --- SLIDER SECTION 2222222222--- */
-        .slider-section {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 0;
-            margin: 20px 0;
+        .image-slider {
+            padding: 4px;
+            background: #0f0f0f 0%;
+        }
+        .slider-container {
+            max-width: 900px;
+            margin: 0;
         }
 
-        .slider {
+        .slider-wrapper {
             position: relative;
-            width: 300px;
-            max-width: 800px;
-            height: 300px;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            height: 100%;
+            overflow: none;
+            margin-bottom: 0 !important;
         }
 
         .slide {
@@ -445,22 +332,23 @@ header {
         }
 
         .slide img {
-            width: 100%;
             height: 100%;
-            object-fit: cover;
+            width : 100%;
+            object-fit: contain;
+            margin-top: 1px;
         }
 
         .slider-nav {
             display: flex;
             justify-content: center;
-            margin-top: 5px;
-            gap: 3px;
+            gap: 4px;
+            margin: 2px;
         }
 
         .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
+            width: 5px;
+            height: 5px;
+            border-radius: 75%;
             border: none;
             background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
@@ -468,91 +356,112 @@ header {
         }
 
         .nav-dot.active {
-            background: #ffd93d;
-            transform: scale(1.2);
+            background: #d4af37;
+            transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
         }
 
         .nav-dot:hover {
-            background: rgba(255, 215, 61, 0.7);
+            background: rgba(212, 175, 55, 0.7);
+            transform: scale(1.1);
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .timer-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #ffd93d;
-            font-weight: 300;
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
         }
 
-        .timer-display {
-            font-size: 4rem;
-            font-weight: 100;
-            color: #ff6b6b;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
-            font-family: 'Courier New', monospace;
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
         }
 
-        .timer-subtitle {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .social-links a {
+            color: #4267B2;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-         /* Témoignages */
-.testimonials {
-  background: #0c1533;
-  padding: 3rem 1rem;
-  text-align: center;
-  color: #fff;
-}
+        .social-links a:hover {
+            color: #365899;
+        }
 
-.testimonials h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .burger {
+                display: flex;
+            }
 
-.testimonial-slider {
-  max-width: 600px;
-  margin: 0 auto;
-  position: relative;
-}
+            .nav-links {
+                position: fixed;
+                top: 25px;
+                right: -100%;
+                width: 100%;
+                height: 50px;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.3s ease;
+            }
 
-.testimonial {
-  display: none;
-  font-size: 1.1rem;
-  line-height: 1.5;
-  padding: 1rem;
-  background: rgba(255,255,255,0.05);
-  border-radius: 10px;
-}
+            .nav-links.active {
+                right: 0;
+            }
 
-.testimonial.active {
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .cta-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .slider-wrapper {
+                height: 195px;
+            }
+
+            .collections h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* FOOTER */
+        
+        .move {
   display: block;
+  margin: 0 auto;
+  padding-top: 105px;
+  width: 225px;
+  animation: flotter 3s ease-in-out infinite;
 }
 
-.testimonial h4 {
-  margin-top: 1rem;
-  font-weight: bold;
-  color: #ff0066;
-}
-
-.testimonial-dots {
-  margin-top: 1rem;
-}
-
-.testimonial-dots .dot {
-  height: 10px;
-  width: 10px;
-  margin: 0 3px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.testimonial-dots .active {
-  background-color: #ff0066;
+@keyframes flotter {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
 /* Fond du pop-up */
@@ -631,80 +540,9 @@ header {
   color: #ff6b6b;
   transform: rotate(90deg) scale(1.2);
 }
-
-/*  BOUTON FINAL  */
-.cta-container {
-  text-align: center;
-  margin: 55px 0;
-}
-
-.cta-final {
-  display: inline-block;
-  padding: 10px 37px;
-  background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 200;
-  text-transform: uppercase;
-  border-radius: 50px;
-  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
-  position: relative;
-  overflow: hidden;
-  opacity: 0; /* invisible au départ */
-  pointer-events: none; /* non cliquable au départ */
-  transition: opacity 0.6s ease, transform 0.3s ease;
-}
-
-.cta-final::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.5s;
-}
-
-.cta-final:hover::before {
-  left: 100%;
-}
-
-.cta-final:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(255, 107, 107, 0.5);
-}
-
-.cta-final.show {
-  opacity: 1; /* devient visible */
-  pointer-events: auto; /* devient cliquable */
-}
-
-@keyframes popIn {
-  0% {
-    transform: scale(0.5);
-    opacity: 0;
-    box-shadow: 0 0 0 rgba(255,107,107,0);
-  }
-  60% {
-    transform: scale(1.2);
-    opacity: 1;
-    box-shadow: 0 0 25px rgba(255,107,107,0.4);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-    box-shadow: 0 0 15px rgba(255,107,107,0.3);
-  }
-}
-
-.cta-final.show {
-  opacity: 1;
-  pointer-events: auto;
-  animation: popIn 0.8s ease-out; /* animation quand il apparaît */
-}
-
+.me {
+    color: #d4af37;
+}}
     </style>
 </head>
 <body>
@@ -717,214 +555,110 @@ header {
         <div class="particle"></div>
     </div>
 
-    <header>
-    
-    
-      <nav class="navbar">
-    <div class="logo">BADCAT°</div>
-    <ul class="nav-links">
-      <li><a href="https://wa.me/p/30969244436055446/22542229253">PARFUM FEMME</a></li>
-      <li><a href="https://wa.me/22542229253">CONTACT</a></li>
-      <li><a href="https://wa.me/c/22542229253">BOUTIQUE</a></li>
-      <li><a href="https://wa.me/p/24268355712823608/22542229253" class="btn-order">PASSER MA COMMANDE</a></li>
-    </ul>
-    <div class="burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
-  
-        <div class="container">
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">BADCAT°</div>
+            <ul class="nav-links">
+                <li><a href="https://wa.me/22542229253">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>HOMME<br>E & A2</h1>
-                    <h2>Élégant | Audacieux | Affirmatif</h2>
-                    <p>Découvrez les fragrances de parfum RARE, créée pour HOMME MODERNE qui ose se sentir unique.</p>
-                    <a href="https://wa.me/p/24268355712823608/22542229253" class="cta-button">Voir la Collection</a>
+   <!-- SLIDER SECTION -->
+    <section class="image-slider">
+        <div class="slider-container">
+            <div class="slider-wrapper">
+                <div class="slide active">
+                    <img src="img/homme1.jpg" alt="Collection Féminine 1">
                 </div>
-                <div class="hero-visual">
-                    <div class="perfume-bottle"></div>
+                <div class="slide">
+                    <img src="img/homme2.jpg" alt="Collection Masculine 1">
+                </div>
+                <div class="slide">
+                    <img src="img/femme1.jpg" alt="Édition Limitée 1">
+                </div>
+                <div class="slide">
+                    <img src="img/femme2.jpg" alt="Collection Luxe 1">
                 </div>
             </div>
-        </section>
+            <div class="slider-nav">
+                <button class="nav-dot active" onclick="showSlide(0)"></button>
+                <button class="nav-dot" onclick="showSlide(1)"></button>
+                <button class="nav-dot" onclick="showSlide(2)"></button>
+                <button class="nav-dot" onclick="showSlide(3)"></button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Collection Premium</h1>
+            <p> 40% ESSENCE,<br><span class="me">BADCAT°</span> - Sauvage, mais irrésistiblement raffiné. Un parfum, un pouvoir <span class="me">BADCAT°</span>12h sur le corps!</p>
+            
+            <div class="cta-container">
+                <a href="https://mylnk.github.io/femme/" class="cta-button cta-feminine">Collection Féminine</a>
+                <a href="https://mylnk.github.io/homme/" class="cta-button cta-masculine">Collection Masculine</a>
+            </div>
+        </div>
+    </section>
 
-        <!-- Pop-up -->
+<img src="img/logo.png" alt="Mon image animée" class="move">
+
+    <!-- COLLECTIONS -->
+    <section class="collections">
+        <div class="container">
+            <h2>Badcat° Merveilles</h2>
+            <div class="collections-grid">
+                <div class="collection-item">
+                    <h3>Élégance Féminine</h3>
+                    <p>Des fragrances délicates et sophistiquées qui révèlent la beauté intérieure de chaque femme</p>
+                </div>
+                <div class="collection-item">
+                    <h3>Prestige Masculin</h3>
+                    <p>Des parfums puissants et raffinés pour l'homme moderne qui affirme son caractère</p>
+                </div>
+                <div class="collection-item">
+                    <h3>Éditions Limitées</h3>
+                    <p>Des créations exclusives et rares pour les connaisseurs les plus exigeants</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pop-up -->
 <div id="popup">
   <div class="popup-content">
     <span class="close-btn">&times;</span>
-    <a href="https://wa.me/p/24268355712823608/22542229253" target="_blank">
-      <img src="img/image4.jpg" alt="Promo BADCAT°">
+    <a href="https://wa.me/c/22542229253" target="_blank">
+      <img src="img/Pop-up.jpg" alt="Promo BADCAT°">
     </a>
   </div>
 </div>
-        
-            <div class="hero1"> <h2>BONUS D'ACHAT : 3 BOXERS DE MARQUE <br>reste 39 / 50 Boxers!</h2>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="copyright">
+                © 2025 Badcat° Parfums - Tous droits reservés
             </div>
-
-        <!-- SLIDER SECTION -->
-        <div class="slider-section">
-            <div class="container">
-                <div class="slider">
-                    <div class="slide active">
-                     <img src="img/image1.jpg" alt="image 1">
-                    </div>
-                    <div class="slide">
-                        <img src="img/image2.jpg" alt="Image 2">
-                    </div>
-                    <div class="slide">
-                        <img src="img/image3.jpg" alt="Image 3">
-                    </div>
-                </div>
-                <div class="slider-nav">
-                    <button class="nav-dot active" onclick="showSlide(0)"></button>
-                    <button class="nav-dot" onclick="showSlide(1)"></button>
-                     <button class="nav-dot" onclick="showSlide(2)"></button>
-                </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1FVYPfm1iG/" target="_blank">Suivez-nous ici</a>
             </div>
-        </div>
-
-        <section class="timer-section">
-            <div class="container">
-                <h3 class="timer-title">Temps pour avoir 3 Boxers gratuit!</h3>
-                <div class="timer-display" id="timer">10:00</div>
-                <p class="timer-subtitle">Dépêchez-vous avant la fin de l'offre</p>              
-         </div>
-         <a href="https://wa.me/p/24268355712823608/22542229253" class="cta-button">Passer en boutique</a>
-        </section>
-    </main>
-    
-<!-- Témoignages / Recommandations -->
-<section class="testimonials" id="avis">
-  <h2>Ils ont adoré BADCAT°</h2>
-
-  <div class="testimonial-slider">
-    <div class="testimonial active">
-      <p>"Une fragrance incroyable qui me donne confiance en moi."</p>
-      <h4>- Mr Kablan, Abidjan</h4>
-    </div>
-    <div class="testimonial">
-      <p>"Le parfum BADCAT° est juste magique, j'utilise Bois d'argent !"</p>
-      <h4>- Mr Tuo, Bouaké</h4>
-    </div>
-    <div class="testimonial">
-      <p>"Son odeur est élégante et tient toute la journée."</p>
-      <h4>- Mr Sanogo, Yamoussoukro</h4>
-    </div>
-    <div class="testimonial">
-      <p>"On me demande tout le temps quel parfum c’est."</p>
-      <h4>- Mr Fatiga, Dimbokro</h4>
-    </div>
-    <div class="testimonial">
-      <p>"Je recommande à 100%."</p>
-      <h4>- Daniel, Port-bouet</h4>
-    </div>
-    <div class="testimonial">
-      <p>"Un cadeau parfait pour mon mari, il est content comme ça."</p>
-      <h4>- Ami, Abidjan</h4>
-    </div>
-    <div class="testimonial">
-      <p>"J’adore le packaging!!"</p>
-      <h4>- Mr Gobé, Berginville</h4>
-    </div>
-    <div class="testimonial">
-      <p>"Je n’ai jamais reçu autant de compliments sur mon parfum."</p>
-      <h4>- David, Abingourou</h4>
-    </div>
-    <div class="testimonial">
-      <p>"Service rapide et parfum de qualité supérieure."</p>
-      <h4>- Badiel, 2Plateaux</h4>
-    </div>
-    <div class="testimonial">
-      <p>"Il dure toute la journée et reste subtil, j’adore."</p>
-      <h4>- Mr Koffi, Bouaké</h4>
-    </div>
-  </div>
-
-  <div class="testimonial-dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-</section>
-
-<!-- Bouton d'appel à l'action -->
-<div class="cta-container">
-  <a href="https://wa.me/p/24268355712823608/22542229253" class="cta-final" id="ctaFinal"> Le plus vendus ></a>
-</div>
-
-    <footer>
-        <div class="container">
-            <p class="copyright">© 2025 BADCAT° - TOUS DROITS RESERVES <br> Classe A pour homme de valeur</p>
         </div>
     </footer>
 
     <script>
-        // Timer functionality
-        let timeLeft = 10 * 60; // 10 minutes in seconds
-        const timerDisplay = document.getElementById('timer');
-
-        function updateTimer() {
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-            
-            const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            timerDisplay.textContent = formattedTime;
-            
-            if (timeLeft > 0) {
-                timeLeft--;
-            } else {
-                clearInterval(timerInterval);
-                timerDisplay.textContent = "EXPIRÉ";
-                timerDisplay.style.color = "#ff4757";
-            }
-        }
-
-        // Start timer
-        const timerInterval = setInterval(updateTimer, 1000);
-        updateTimer(); // Initial call
-
-        // Add smooth scroll effect for CTA button
-        document.querySelector('.cta-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            // Add your action here - redirect to product page, open modal, etc.
-            target="_blank"
-        });
-
-        // Add parallax effect to particles
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const particles = document.querySelectorAll('.particle');
-            
-            particles.forEach((particle, index) => {
-                const speed = (index + 1) * 0.1;
-                particle.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-        
-          const burger = document.querySelector('.burger');
-  const navLinks = document.querySelector('.nav-links');
-
-  burger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
-  
-  // Slider functionality
+        // Slider functionality
         const slides = document.querySelectorAll('.slide');
         const navDots = document.querySelectorAll('.nav-dot');
-        let currentIndex = 0;
+        let currentSlideIndex = 0;
 
         function showSlide(index) {
             // Remove active class from all slides and dots
@@ -935,19 +669,36 @@ header {
             slides[index].classList.add('active');
             navDots[index].classList.add('active');
             
-            currentIndex = index;
+            currentSlideIndex = index;
         }
 
         function nextSlide() {
-            const nextIndex = (currentIndex + 1) % slides.length;
+            const nextIndex = (currentSlideIndex + 1) % slides.length;
             showSlide(nextIndex);
         }
 
         // Auto-play slider every 4 seconds
         setInterval(nextSlide, 4000);
 
-        // Add parallax effect to particles
-        window.addEventListener('scroll', function() {
+        // Menu burger
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Effet parallaxe sur les particules
+        window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const particles = document.querySelectorAll('.particle');
             
@@ -957,48 +708,33 @@ header {
             });
         });
 
-  const cta = document.querySelector('.cta-button');
-if (cta) {
-  cta.addEventListener('click', function(e) {
-    e.preventDefault();                 // empêche l'action par défaut
-    const url = cta.getAttribute('href') || cta.dataset.href || 'https://tonshop.com';
-    // ouvrir dans le même onglet :
-    window.location.href = url;
-    // -- ou ouvrir dans un nouvel onglet :
-    // window.open(url, '_blank');
-  });
-}
-  // Slider Témoignages automatique
-let tIndex = 0;
-const tSlides = document.querySelectorAll('.testimonial');
-const tDots = document.querySelectorAll('.testimonial-dots .dot');
+        // Animation des boutons CTA
+        const ctaButtons = document.querySelectorAll('.cta-button');
+        ctaButtons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.style.animationPlayState = 'paused';
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                button.style.animationPlayState = 'running';
+            });
+        });
 
-function showTestimonial(n) {
-  tSlides.forEach((slide, i) => {
-    slide.classList.remove('active');
-    tDots[i].classList.remove('active');
-  });
-  tSlides[n].classList.add('active');
-  tDots[n].classList.add('active');
-}
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-function nextTestimonial() {
-  tIndex++;
-  if (tIndex >= tSlides.length) tIndex = 0;
-  showTestimonial(tIndex);
-}
-
-setInterval(nextTestimonial, 4000); // change toutes les 4 secondes
-
-// Click manuel sur les dots
-tDots.forEach((dot, i) => {
-  dot.addEventListener('click', () => {
-    tIndex = i;
-    showTestimonial(tIndex);
-  });
-});
-
-// Affiche le pop-up 2 secondes après le chargement
+        // Affiche le pop-up 2 secondes après le chargement
 window.addEventListener('load', () => {
   setTimeout(() => {
     const popup = document.getElementById('popup');
@@ -1016,12 +752,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('popup').style.display = 'none';
   });
 });
-
-// Attendre 63 secondes avant d'afficher le bouton
-  setTimeout(() => {
-    document.getElementById('ctaFinal').classList.add('show');
-  }, 25000); // 25 secondes
-
     </script>
 </body>
 </html>
